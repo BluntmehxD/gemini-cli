@@ -12,9 +12,10 @@ import { GenerateContentResponse, Part, FunctionCall } from '@google/genai';
 
 // Mock dependencies
 vi.mock('@google/blnt-core', async () => {
-  const actualCore = await vi.importActual<
-    typeof import('@google/blnt-core')
-  >('@google/blnt-core');
+  const actualCore =
+    await vi.importActual<typeof import('@google/blnt-core')>(
+      '@google/blnt-core',
+    );
   return {
     ...actualCore,
     GeminiClient: vi.fn(),

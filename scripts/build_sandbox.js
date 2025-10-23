@@ -85,12 +85,9 @@ if (!argv.s) {
 console.log('packing @google/blnt ...');
 const cliPackageDir = join('packages', 'cli');
 rmSync(join(cliPackageDir, 'dist', 'google-blnt-*.tgz'), { force: true });
-execSync(
-  `npm pack -w @google/blnt --pack-destination ./packages/cli/dist`,
-  {
-    stdio: 'ignore',
-  },
-);
+execSync(`npm pack -w @google/blnt --pack-destination ./packages/cli/dist`, {
+  stdio: 'ignore',
+});
 
 console.log('packing @google/blnt-core ...');
 const corePackageDir = join('packages', 'core');

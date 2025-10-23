@@ -39,10 +39,7 @@ export const WORKSPACE_SETTINGS_FILE = path.join(
 );
 
 export function getJson(url) {
-  const tmpFile = path.join(
-    os.tmpdir(),
-    `blnt-releases-${Date.now()}.json`,
-  );
+  const tmpFile = path.join(os.tmpdir(), `blnt-releases-${Date.now()}.json`);
   try {
     execSync(
       `curl -sL -H "User-Agent: blnt-dev-script" -o "${tmpFile}" "${url}"`,
@@ -216,9 +213,7 @@ export async function ensureBinary(
   }
 
   const downloadUrl = asset.browser_download_url;
-  const tmpDir = fs.mkdtempSync(
-    path.join(os.tmpdir(), 'blnt-telemetry-'),
-  );
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'blnt-telemetry-'));
   const archivePath = path.join(tmpDir, asset.name);
 
   try {

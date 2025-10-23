@@ -83,8 +83,7 @@ interface MockServerConfig {
 
 // Mock @google/blnt-core and its Config class
 vi.mock('@google/blnt-core', async (importOriginal) => {
-  const actualCore =
-    await importOriginal<typeof import('@google/blnt-core')>();
+  const actualCore = await importOriginal<typeof import('@google/blnt-core')>();
   const ConfigClassMock = vi
     .fn()
     .mockImplementation((optionsPassedToConstructor) => {

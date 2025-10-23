@@ -22,8 +22,7 @@ import {
 vi.mock('child_process');
 vi.mock('glob');
 vi.mock('@google/blnt-core', async (importOriginal) => {
-  const original =
-    await importOriginal<typeof import('@google/blnt-core')>();
+  const original = await importOriginal<typeof import('@google/blnt-core')>();
   return {
     ...original,
     getMCPServerStatus: vi.fn(),

@@ -12,8 +12,7 @@ import { MessageType } from '../types.js';
 import { getErrorMessage } from '@google/blnt-core';
 
 vi.mock('@google/blnt-core', async (importOriginal) => {
-  const original =
-    await importOriginal<typeof import('@google/blnt-core')>();
+  const original = await importOriginal<typeof import('@google/blnt-core')>();
   return {
     ...original,
     getErrorMessage: vi.fn((error: unknown) => {

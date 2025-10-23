@@ -24,8 +24,7 @@ vi.mock('open', () => ({
 }));
 
 vi.mock('@google/blnt-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/blnt-core')>();
+  const actual = await importOriginal<typeof import('@google/blnt-core')>();
   return {
     ...actual,
     getMCPServerStatus: vi.fn(),
