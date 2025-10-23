@@ -21,7 +21,7 @@ import {
   FileFilteringOptions,
   MCPServerConfig,
   IDE_SERVER_NAME,
-} from '@google/gemini-cli-core';
+} from '@google/blnt-core';
 import { Settings } from './settings.js';
 
 import { Extension, annotateActiveExtensions } from './extension.js';
@@ -68,7 +68,7 @@ export async function parseArguments(): Promise<CliArgs> {
     .scriptName('gemini')
     .usage(
       '$0 [options]',
-      'Gemini CLI - Launch an interactive CLI, use -p/--prompt for non-interactive mode',
+      'BLNT - Launch an interactive CLI, use -p/--prompt for non-interactive mode',
     )
     .option('model', {
       alias: 'm',
