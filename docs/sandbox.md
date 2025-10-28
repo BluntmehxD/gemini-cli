@@ -1,13 +1,13 @@
-# Sandboxing in the Gemini CLI
+# Sandboxing in the BLNT
 
-This document provides a guide to sandboxing in the Gemini CLI, including prerequisites, quickstart, and configuration.
+This document provides a guide to sandboxing in the BLNT, including prerequisites, quickstart, and configuration.
 
 ## Prerequisites
 
-Before using sandboxing, you need to install and set up the Gemini CLI:
+Before using sandboxing, you need to install and set up the BLNT:
 
 ```bash
-npm install -g @google/gemini-cli
+npm install -g @google/blnt
 ```
 
 To verify the installation

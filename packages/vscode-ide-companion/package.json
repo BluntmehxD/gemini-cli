@@ -1,13 +1,13 @@
 {
-  "name": "gemini-cli-vscode-ide-companion",
-  "displayName": "Gemini CLI VSCode IDE Companion",
+  "name": "blnt-vscode-ide-companion",
+  "displayName": "BLNT VSCode IDE Companion",
   "description": "",
   "version": "0.1.13",
   "publisher": "google",
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/google-gemini/gemini-cli.git",
+    "url": "https://github.com/BluntmehxD/gemini-cli.git",
     "directory": "packages/vscode-ide-companion"
   },
   "engines": {

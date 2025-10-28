@@ -1,8 +1,8 @@
-# Gemini CLI Observability Guide
+# BLNT Observability Guide
 
-Telemetry provides data about Gemini CLI's performance, health, and usage. By enabling it, you can monitor operations, debug issues, and optimize tool usage through traces, metrics, and structured logs.
+Telemetry provides data about BLNT's performance, health, and usage. By enabling it, you can monitor operations, debug issues, and optimize tool usage through traces, metrics, and structured logs.
 
-Gemini CLI's telemetry system is built on the **[OpenTelemetry] (OTEL)** standard, allowing you to send data to any compatible backend.
+BLNT's telemetry system is built on the **[OpenTelemetry] (OTEL)** standard, allowing you to send data to any compatible backend.
 
 [OpenTelemetry]: https://opentelemetry.io/
 
@@ -14,7 +14,7 @@ You can enable telemetry in multiple ways. Configuration is primarily managed vi
 
 The following lists the precedence for applying telemetry settings, with items listed higher having greater precedence:
 
-1.  **CLI flags (for `gemini` command):**
+1.  **CLI flags (for `blnt` command):**
     - `--telemetry` / `--no-telemetry`: Overrides `telemetry.enabled`.
     - `--telemetry-target <local|gcp>`: Overrides `telemetry.target`.
     - `--telemetry-otlp-endpoint <URL>`: Overrides `telemetry.otlpEndpoint`.
@@ -73,12 +73,12 @@ Use the `npm run telemetry -- --target=local` command to automate the process of
     The script will:
     - Download Jaeger and OTEL if needed.
     - Start a local Jaeger instance.
-    - Start an OTEL collector configured to receive data from Gemini CLI.
+    - Start an OTEL collector configured to receive data from BLNT.
     - Automatically enable telemetry in your workspace settings.
     - On exit, disable telemetry.
 
 1.  **View traces**:
-    Open your web browser and navigate to **http://localhost:16686** to access the Jaeger UI. Here you can inspect detailed traces of Gemini CLI operations.
+    Open your web browser and navigate to **http://localhost:16686** to access the Jaeger UI. Here you can inspect detailed traces of BLNT operations.
 
 1.  **Inspect logs and metrics**:
     The script redirects the OTEL collector output (which includes logs and metrics) to `~/.gemini/tmp/<projectHash>/otel/collector.log`. The script will provide links to view and a command to tail your telemetry data (traces, metrics, logs) locally.
@@ -108,13 +108,13 @@ Use the `npm run telemetry -- --target=gcp` command to automate setting up a loc
 
     The script will:
     - Download the `otelcol-contrib` binary if needed.
-    - Start an OTEL collector configured to receive data from Gemini CLI and export it to your specified Google Cloud project.
+    - Start an OTEL collector configured to receive data from BLNT and export it to your specified Google Cloud project.
     - Automatically enable telemetry and disable sandbox mode in your workspace settings (`.gemini/settings.json`).
     - Provide direct links to view traces, metrics, and logs in your Google Cloud Console.
     - On exit (Ctrl+C), it will attempt to restore your original telemetry and sandbox settings.
 
-1.  **Run Gemini CLI:**
-    In a separate terminal, run your Gemini CLI commands. This generates telemetry data that the collector captures.
+1.  **Run BLNT:**
+    In a separate terminal, run your BLNT commands. This generates telemetry data that the collector captures.
 
 1.  **View telemetry in Google Cloud**:
     Use the links provided by the script to navigate to the Google Cloud Console and view your traces, metrics, and logs.
@@ -127,13 +127,13 @@ Use the `npm run telemetry -- --target=gcp` command to automate setting up a loc
 
 ## Logs and metric reference
 
-The following section describes the structure of logs and metrics generated for Gemini CLI.
+The following section describes the structure of logs and metrics generated for BLNT.
 
 - A `sessionId` is included as a common attribute on all logs and metrics.
 
 ### Logs
 
-Logs are timestamped records of specific events. The following events are logged for Gemini CLI:
+Logs are timestamped records of specific events. The following events are logged for BLNT:
 
 - `gemini_cli.config`: This event occurs once at startup with the CLI's configuration.
   - **Attributes**:
@@ -194,13 +194,13 @@ Logs are timestamped records of specific events. The following events are logged
     - `response_text` (if applicable)
     - `auth_type`
 
-- `gemini_cli.flash_fallback`: This event occurs when Gemini CLI switches to flash as fallback.
+- `gemini_cli.flash_fallback`: This event occurs when BLNT switches to flash as fallback.
   - **Attributes**:
     - `auth_type`
 
 ### Metrics
 
-Metrics are numerical measurements of behavior over time. The following metrics are collected for Gemini CLI:
+Metrics are numerical measurements of behavior over time. The following metrics are collected for BLNT:
 
 - `gemini_cli.session.count` (Counter, Int): Incremented once per CLI startup.
 

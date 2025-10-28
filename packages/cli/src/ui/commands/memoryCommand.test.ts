@@ -9,11 +9,10 @@ import { memoryCommand } from './memoryCommand.js';
 import { type CommandContext, SlashCommand } from './types.js';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';
 import { MessageType } from '../types.js';
-import { getErrorMessage } from '@google/gemini-cli-core';
+import { getErrorMessage } from '@google/blnt-core';
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const original =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@google/blnt-core', async (importOriginal) => {
+  const original = await importOriginal<typeof import('@google/blnt-core')>();
   return {
     ...original,
     getErrorMessage: vi.fn((error: unknown) => {

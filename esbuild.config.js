@@ -18,7 +18,7 @@ esbuild
   .build({
     entryPoints: ['packages/cli/index.ts'],
     bundle: true,
-    outfile: 'bundle/gemini.js',
+    outfile: 'bundle/blnt.js',
     platform: 'node',
     format: 'esm',
     define: {
